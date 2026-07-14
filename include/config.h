@@ -4,8 +4,8 @@
 // =====================================================================
 // WiFi Access Point
 // =====================================================================
-#define WIFI_SSID       "ESP_Drone"
-#define WIFI_PASSWORD   "ChangeThisPassword123"   // >= 8 chars. CHANGE THIS.
+#define WIFI_SSID       "ESPiBUS RC"
+#define WIFI_PASSWORD   "12345678"   // >= 8 chars. CHANGE THIS.
 #define WIFI_CHANNEL    1                          // fixed channel, avoid auto-scan
 #define WIFI_MAX_CONN   4                          // test value; tighten back to 1 once connection works
 
@@ -39,8 +39,13 @@
 #define IBUS_CHANNELS   14
 #define IBUS_FRAME_MS   7      // ~142 Hz, standard iBUS cadence
 
-#if defined(BOARD_HAS_DUAL_CORE) && BOARD_HAS_DUAL_CORE
+#if defined(CONFIG_IDF_TARGET_ESP32S3)
   // ESP32-S3 pin map - adjust to your wiring
+  #define IBUS_TX_PIN   17
+#elif defined(CONFIG_IDF_TARGET_ESP32)
+  // ESP32 DevKit V1 (WROOM-32) pin map - GPIO17 is UART2 TX (hardware
+  // UART, shares nothing with the USB/serial-monitor UART0) - adjust
+  // to your wiring if you've routed it elsewhere.
   #define IBUS_TX_PIN   17
 #else
   // ESP32-C3 pin map - fewer usable GPIOs, adjust to your wiring

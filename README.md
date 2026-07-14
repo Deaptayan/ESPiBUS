@@ -14,9 +14,10 @@ The project was designed with reliability, modularity, and future expansion in m
 
 * Native FlySky iBUS output
 * Compatible with any iBUS-enabled flight controller
-* ESP32-S3 and ESP32-C3 support
+* ESP32-S3, ESP32-C3, and ESP32 DevKit V1 support
 * PlatformIO project
 * FreeRTOS-based architecture
+* Uses Dual core for esp32 s3 and esp32 devkitv1
 * Deterministic control loop using `vTaskDelayUntil()`
 * Binary UDP control protocol
 * Packet authentication (HMAC-SHA256)
@@ -74,8 +75,9 @@ tools/
 
 ## Microcontrollers
 
-* ESP32-S3
-* ESP32-C3
+* ESP32-S3 (Dual Core)
+* ESP32-C3 (single core)
+* ESP32 DevKit V1 (WROOM-32, dual core)
 
 ## Flight Controllers
 
@@ -112,6 +114,12 @@ or
 
 ```bash
 pio run -e esp32c3 -t upload -t monitor
+```
+
+or
+
+```bash
+pio run -e esp32dev -t upload -t monitor
 ```
 
 ---

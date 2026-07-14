@@ -26,6 +26,7 @@ tools/
 ```
 pio run -e esp32s3 -t upload -t monitor   # for an ESP32-S3 board
 pio run -e esp32c3 -t upload -t monitor   # for an ESP32-C3 board
+pio run -e esp32dev -t upload -t monitor  # for an ESP32 DevKit V1 (WROOM-32) board
 ```
 
 The only difference between the two environments is one build flag,
